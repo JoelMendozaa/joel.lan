@@ -124,7 +124,7 @@
                         <tr>
                             <th scope=\"row\">
                                 ". enlace("/{$this->seccion}/actualizar/{$fila['id']}",'Actualizar',['class' => 'btn btn-primary']) ."
-                                ". enlace("#",'Eliminar',['class' => 'btn btn-danger','onclick' => "if(confirm('Cuidado, estás tratando de eliminar el libro: {$fila['nombre']}')) location.href = './biblioteca/eliminar/{$fila['id']}';"]) ."
+                                ". enlace("#",'Eliminar',['class' => 'btn btn-danger','onclick' => "if(confirm('Cuidado, estás tratando de eliminar el libro: {$fila['nombre']}')) location.href = '/biblioteca/eliminar/{$fila['id']}';"]) ."
                             </th>
                             <td>{$fila['nombre']}</td>
                             <td>{$fila['descripcion']}</td>

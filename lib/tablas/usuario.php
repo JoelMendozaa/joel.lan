@@ -2,11 +2,10 @@
 
 
 
-    class Libro extends Tabla_Biblioteca
+    class Usuario extends Tabla_Usuario
     {
-        const TABLA = 'libros';
+        const TABLA = 'usuarios';
 
-        const EDITORIALES = ['AY' => 'Anaya', 'ST' => 'Santillana'];
 
         function __construct()
         {
@@ -16,15 +15,14 @@
 
 
 
-        function existeLibro($nombre,$descripcion,$autor,$editorial,$id='')
+        function existeUsuario($nombre,$edad,$email,$id='')
         {
             $opt = [];
             
             $opt['select']['nombre']     = '';
             $opt['where']['nombre']      = $nombre;
-            $opt['where']['descripcion'] = $descripcion;
-            $opt['where']['autor']       = $autor;
-            $opt['where']['editorial']   = $editorial;
+            $opt['where']['edad']        = $edad;
+            $opt['where']['email']       = $email;
 
             if(!empty($id))
                 $opt['notwhere']['id'] = $id;

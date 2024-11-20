@@ -105,7 +105,9 @@
                     <div class=\"collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0\" id=\"navbarSupportedContent\">
                         <ul class=\"navbar-nav ms-auto pt-2 pt-lg-0 font-base\">
                         <li class=\"nav-item px-2\"><a class=\"nav-link active\" aria-current=\"page\" href=\"/\">Home</a></li>
-                        <li class=\"nav-item px-2\"><a class=\"nav-link\" aria-current=\"page\" href=\"./biblioteca/\">Biblioteca</a></li>
+                        <li class=\"nav-item px-2\"><a class=\"nav-link\" aria-current=\"page\" href=\"/biblioteca/\">Biblioteca</a></li>
+                        <li class=\"nav-item px-2\"><a class=\"nav-link\" aria-current=\"page\" href=\"/usuarios/\">Usuarios</a></li>
+                        <li class=\"nav-item px-2\"><a class=\"nav-link\" aria-current=\"page\" href=\"/horario/\">Horario</a></li>
                         </ul><a class=\"btn btn-primary order-1 order-lg-0\" href=\"#!\">Login</a>
                         <form class=\"d-flex my-3 d-block d-lg-none\">
                         <input class=\"form-control me-2\" type=\"search\" placeholder=\"Buscar\" aria-label=\"Buscar\" />
@@ -240,6 +242,14 @@
             {
                 case 'biblioteca':
                     $objeto_crud = new BibliotecaCRUD();
+                break;
+
+                case 'usuarios':
+                    $objeto_crud = new UsuarioCRUD();
+                break;
+
+                case 'horario':
+                    $objeto_crud = new HorarioCRUD();
                 break;
 
                 default:
