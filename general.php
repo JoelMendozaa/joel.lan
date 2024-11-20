@@ -19,7 +19,23 @@ spl_autoload_register(function ($nombre) {
         $nombre = 'crud';
     }
 
+    if (substr($nombre,-15) == 'bbdd_biblioteca')
+    {
+        $nombre_backup = substr($nombre, 0, -15);
+        $nombre = 'bbdd_biblioteca';
+    }
 
+    if (substr($nombre,-12) == 'bbdd_usuario')
+    {
+        $nombre_backup = substr($nombre, 0, -12);
+        $nombre = 'bbdd_usuario';
+    }
+
+    if (substr($nombre,-12) == 'bbdd_horario')
+    {
+        $nombre_backup = substr($nombre, 0, -12);
+        $nombre = 'bbdd_horario';
+    }
 
     switch($nombre)
     {
@@ -31,16 +47,28 @@ spl_autoload_register(function ($nombre) {
         case 'select':     
             require_once "lib/form/{$nombre}.php";
         break;
-        case 'libro':     
-        case 'tabla':          
+
+        case 'libro':   
+        case 'usuario':
+        case 'horario':
+
+        case 'tabla_biblioteca':          
+            require_once "lib/tablas/{$nombre}.php";
+        break;
+        case 'tabla_usuario':          
+            require_once "lib/tablas/{$nombre}.php";
+        break;
+        case 'tabla_horario':          
             require_once "lib/tablas/{$nombre}.php";
         break;
         case 'programabase':
             require_once "lib/proc/programa_base.php";
         break;
+        
         case 'crud':
             require_once "lib/proc/{$nombre_backup}_crud/{$nombre_backup}_crud.php";
         break;
+        
         default:
             require_once "lib/{$nombre}/{$nombre}.php";
         break;
@@ -51,9 +79,8 @@ spl_autoload_register(function ($nombre) {
 
 
 
-function enlace($href,$texto_enlace, $opt=[])
-{
-
+function enlace($href, $texto_enlace, $opt=[])
+{ 
     $title   = empty($opt['title'])  ? '' : " data-bs-toggle=\"tooltip\" data-bs-html=\"true\" data-bs-title=\"{$opt['title']}\" ";
     $class   = empty($opt['class'])  ? '' : " class=\"{$opt['class']}\" ";
     $onclick = empty($opt['onclick'])? '' : " onclick=\"{$opt['onclick']}\" ";
