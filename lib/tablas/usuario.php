@@ -2,10 +2,9 @@
 
 
 
-    class Usuario extends Tabla_Usuario
+    class Usuario extends Tabla
     {
         const TABLA = 'usuarios';
-
 
         function __construct()
         {
@@ -15,14 +14,14 @@
 
 
 
-        function existeUsuario($nombre,$edad,$email,$id='')
+        function existeUsuario($nombre,$email,$edad,$id='')
         {
             $opt = [];
             
             $opt['select']['nombre']     = '';
             $opt['where']['nombre']      = $nombre;
-            $opt['where']['edad']        = $edad;
             $opt['where']['email']       = $email;
+            $opt['where']['edad']        = $edad;
 
             if(!empty($id))
                 $opt['notwhere']['id'] = $id;

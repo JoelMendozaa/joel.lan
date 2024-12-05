@@ -2,7 +2,7 @@
 
 
 
-    class Libro extends Tabla_Biblioteca
+    class Libro extends Tabla
     {
         const TABLA = 'libros';
 
